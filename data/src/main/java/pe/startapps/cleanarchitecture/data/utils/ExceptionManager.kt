@@ -22,7 +22,7 @@ fun Throwable.transform() = when (this) {
     is HttpException -> {
         val message = parseBody()
         when (code()) {
-            400  -> UnauthorizedException(message)
+            401  -> UnauthorizedException(message)
             else -> Exception()
         }
     }
