@@ -6,6 +6,7 @@ import dagger.Provides
 import dagger.android.support.AndroidSupportInjectionModule
 import pe.startapps.cleanarchitecture.data.DataModule
 import pe.startapps.cleanarchitecture.modules.ActivityBindingModule
+import pe.startapps.cleanarchitecture.modules.SchedulersModule
 
 /**
  * @author Kevin Salazar
@@ -14,6 +15,7 @@ import pe.startapps.cleanarchitecture.modules.ActivityBindingModule
 @Module(
         includes = [
             DataModule::class,
+            SchedulersModule::class,
             ActivityBindingModule::class,
             AndroidSupportInjectionModule::class
         ]

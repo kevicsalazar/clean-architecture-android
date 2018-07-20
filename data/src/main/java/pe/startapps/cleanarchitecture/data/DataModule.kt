@@ -9,7 +9,7 @@ import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import pe.startapps.cleanarchitecture.data.modules.RepositoryModule
-import pe.startapps.cleanarchitecture.data.sources.ApiService
+import pe.startapps.cleanarchitecture.data.sources.cloud.ApiService
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory

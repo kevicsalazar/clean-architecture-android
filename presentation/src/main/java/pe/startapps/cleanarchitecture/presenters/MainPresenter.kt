@@ -1,6 +1,9 @@
 package pe.startapps.cleanarchitecture.presenters
 
-import pe.startapps.cleanarchitecture.domain.usecases.GetProfileUseCase
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.plusAssign
+import pe.startapps.cleanarchitecture.domain.usecases.UsersListUseCase
+import pe.startapps.cleanarchitecture.mappers.UserMapper
 import pe.startapps.cleanarchitecture.scopes.PerActivity
 import javax.inject.Inject
 
@@ -10,15 +13,23 @@ import javax.inject.Inject
  */
 @PerActivity
 class MainPresenter @Inject constructor(private val view: View,
-                                        private val getProfileUseCase: GetProfileUseCase) : BasePresenter {
+                                        private val usersListUseCase: UsersListUseCase) : BasePresenter {
 
-    fun getProfile() {
-        getProfileUseCase.getProfile()
-        view.showMessage("OK")
+    private val cd = CompositeDisposable()
+
+    fun getUserList() {
+        cd += usersListUseCase.getUserList()
+                .map { UserMapper.transformUserList(it) }
+                .subscribe({
+                    println(it.toString())
+                    view.showMessage("OK")
+                }, {
+                    view.showMessage(it.localizedMessage)
+                })
     }
 
     override fun detachView() {
-
+        cd.clear()
     }
 
     interface View {

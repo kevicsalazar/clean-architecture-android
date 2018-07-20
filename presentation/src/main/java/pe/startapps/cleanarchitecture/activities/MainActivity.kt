@@ -17,7 +17,7 @@ class MainActivity : BaseActivity(), MainPresenter.View {
 
         println("Presenter: ${mainPresenter.hashCode()}")
 
-        mainPresenter.getProfile()
+        mainPresenter.getUserList()
 
     }
 
