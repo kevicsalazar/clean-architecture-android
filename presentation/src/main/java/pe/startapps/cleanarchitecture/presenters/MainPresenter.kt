@@ -18,7 +18,7 @@ class MainPresenter @Inject constructor(private val view: View,
     private val cd = CompositeDisposable()
 
     fun getUserList() {
-        cd += usersListUseCase.getUserList()
+        cd += usersListUseCase.execute()
                 .map { UserMapper.transformUserList(it) }
                 .subscribe({
                     println(it.toString())

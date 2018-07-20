@@ -14,7 +14,7 @@ import javax.inject.Inject
 class UsersListUseCase @Inject constructor(private val userRepository: UserRepository,
                                            private val schedulers: SchedulersProvider) {
 
-    fun getUserList(): Single<List<User>> {
+    fun execute(): Single<List<User>> {
         return userRepository.getUserList()
                 .subscribeOn(schedulers.io())
                 .observeOn(schedulers.ui())
