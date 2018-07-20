@@ -1,0 +1,24 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+configurations {
+    compileOnly
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    implementation 'com.google.dagger:dagger:2.14.1'
+    compileOnly 'com.google.dagger:dagger-compiler:2.14.1'
+    compileOnly 'javax.annotation:jsr250-api:1.0'
+
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.10'
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.0.3'
+
+}
