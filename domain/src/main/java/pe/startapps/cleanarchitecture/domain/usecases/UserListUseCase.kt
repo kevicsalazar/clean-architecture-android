@@ -11,8 +11,8 @@ import javax.inject.Inject
  * @author Kevin Salazar
  * @link kevicsalazar.com
  */
-class UsersListUseCase @Inject constructor(private val userRepository: UserRepository,
-                                           private val schedulers: SchedulersProvider) {
+class UserListUseCase @Inject constructor(private val userRepository: UserRepository,
+                                          private val schedulers: SchedulersProvider) {
 
     fun execute(): Single<List<User>> {
         return userRepository.getUserList()

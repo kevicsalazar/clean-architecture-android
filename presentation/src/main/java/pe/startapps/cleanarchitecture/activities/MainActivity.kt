@@ -4,9 +4,10 @@ import android.os.Bundle
 import pe.startapps.cleanarchitecture.R
 import pe.startapps.cleanarchitecture.presenters.BasePresenter
 import pe.startapps.cleanarchitecture.presenters.MainPresenter
+import pe.startapps.cleanarchitecture.views.MainView
 import javax.inject.Inject
 
-class MainActivity : BaseActivity(), MainPresenter.View {
+class MainActivity : BaseActivity(), MainView {
 
     @Inject
     lateinit var mainPresenter: MainPresenter

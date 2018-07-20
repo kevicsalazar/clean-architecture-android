@@ -3,8 +3,8 @@ package pe.startapps.cleanarchitecture.modules
 import dagger.Binds
 import dagger.Module
 import pe.startapps.cleanarchitecture.activities.MainActivity
-import pe.startapps.cleanarchitecture.presenters.MainPresenter
 import pe.startapps.cleanarchitecture.scopes.PerActivity
+import pe.startapps.cleanarchitecture.views.MainView
 
 /**
  * @author Kevin Salazar
@@ -15,6 +15,6 @@ abstract class MainActivityModule {
 
     @Binds
     @PerActivity
-    abstract fun provideMainView(activity: MainActivity): MainPresenter.View
+    abstract fun provideMainView(activity: MainActivity): MainView
 
 }
