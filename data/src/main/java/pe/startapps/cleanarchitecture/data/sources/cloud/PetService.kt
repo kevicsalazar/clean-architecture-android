@@ -1,17 +1,17 @@
 package pe.startapps.cleanarchitecture.data.sources.cloud
 
 import io.reactivex.Single
+import pe.startapps.cleanarchitecture.data.entities.PetEntity
 import pe.startapps.cleanarchitecture.data.entities.ResponseEntity
-import pe.startapps.cleanarchitecture.data.entities.UserEntity
 import retrofit2.http.GET
 
 /**
  * @author Kevin Salazar
  * @link kevicsalazar.com
  */
-interface ApiService {
+interface PetService {
 
-    @GET("/api/users")
-    fun getUserList(): Single<ResponseEntity<List<UserEntity>>>
+    @GET("/api/pets")
+    fun getPetList(): Single<ResponseEntity<List<PetEntity>>>
 
 }

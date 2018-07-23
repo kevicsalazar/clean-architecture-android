@@ -8,9 +8,10 @@ import pe.startapps.cleanarchitecture.domain.entities.User
  */
 object UserMapper {
 
-    fun transformUserEntity(user: UserEntity) = User(
-            name = user.name,
-            lastname = user.lastname
+    fun transformUserEntity(entity: UserEntity) = User(
+            id = entity.id,
+            name = entity.name,
+            lastname = entity.lastname
     )
 
     fun transformUserEntityList(list: List<UserEntity>) = list.map { transformUserEntity(it) }

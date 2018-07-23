@@ -2,7 +2,7 @@ package pe.startapps.cleanarchitecture.data.repository
 
 import io.reactivex.Single
 import pe.startapps.cleanarchitecture.data.mappers.UserMapper
-import pe.startapps.cleanarchitecture.data.sources.cloud.ApiService
+import pe.startapps.cleanarchitecture.data.sources.cloud.UserService
 import pe.startapps.cleanarchitecture.data.utils.handleError
 import pe.startapps.cleanarchitecture.domain.entities.User
 import pe.startapps.cleanarchitecture.domain.repository.UserRepository
@@ -14,11 +14,11 @@ import javax.inject.Singleton
  * @link kevicsalazar.com
  */
 @Singleton
-class UserDataRepository @Inject constructor(private val apiService: ApiService) : UserRepository {
+class UserDataRepository @Inject constructor(private val userService: UserService) : UserRepository {
 
-    override fun getUserList(): Single<List<User>> {
-        return apiService.getUserList().handleError()
-                .map { UserMapper.transformUserEntityList(it.data!!) }
+    override fun getUserProfile(): Single<User> {
+        return userService.getProfile().handleError()
+                .map { UserMapper.transformUserEntity(it.data!!) }
     }
 
 }

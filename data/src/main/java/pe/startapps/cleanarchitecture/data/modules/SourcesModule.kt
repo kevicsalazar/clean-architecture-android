@@ -8,7 +8,8 @@ import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import pe.startapps.cleanarchitecture.data.BuildConfig
-import pe.startapps.cleanarchitecture.data.sources.cloud.ApiService
+import pe.startapps.cleanarchitecture.data.sources.cloud.PetService
+import pe.startapps.cleanarchitecture.data.sources.cloud.UserService
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -42,7 +43,7 @@ class SourcesModule {
     @Provides
     @Singleton
     fun provideRetrofit(gson: Gson, client: OkHttpClient) = Retrofit.Builder()
-            .baseUrl("https://reqres.in/")
+            .baseUrl("https://67b6f48d-49b0-4a75-9877-673d217e8bcf.mock.pstmn.io")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(client)
@@ -50,6 +51,10 @@ class SourcesModule {
 
     @Provides
     @Singleton
-    fun provideApiService(retrofit: Retrofit) = retrofit.create(ApiService::class.java)!!
+    fun provideUserService(retrofit: Retrofit) = retrofit.create(UserService::class.java)!!
+
+    @Provides
+    @Singleton
+    fun providePetService(retrofit: Retrofit) = retrofit.create(PetService::class.java)!!
 
 }

@@ -11,11 +11,11 @@ import javax.inject.Inject
  * @author Kevin Salazar
  * @link kevicsalazar.com
  */
-class UserListUseCase @Inject constructor(private val userRepository: UserRepository,
-                                          private val schedulers: SchedulersProvider) {
+class UserProfileUseCase @Inject constructor(private val userRepository: UserRepository,
+                                             private val schedulers: SchedulersProvider) {
 
-    fun execute(): Single<List<User>> {
-        return userRepository.getUserList()
+    fun execute(): Single<User> {
+        return userRepository.getUserProfile()
                 .subscribeOn(schedulers.io())
                 .observeOn(schedulers.ui())
     }

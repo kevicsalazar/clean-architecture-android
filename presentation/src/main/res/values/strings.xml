@@ -1,3 +1,9 @@
 <resources>
+
     <string name="app_name">CleanArchitecture-Android</string>
+    <string name="notification">Notification</string>
+    <string name="happiness_awaits">Happiness awaits</string>
+    <string name="animals_matched_to_your_profile">Animals matched to your profile</string>
+    <string name="search">Search</string>
+
 </resources>
